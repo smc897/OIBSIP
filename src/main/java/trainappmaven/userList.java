@@ -19,7 +19,7 @@ public class userList {
   Iterator<Users> iter=users.iterator();
   while(iter.hasNext()){
    Users u=iter.next();
-   if(u.id==id) return u;
+   if(u.id.equals(id)) return u;
   }
   
   return null;
@@ -51,7 +51,7 @@ public class userList {
   Iterator<Users> iter=users.iterator();
   while(iter.hasNext()){
    Users u=iter.next();
-   if(u.passWord==pw) return true;
+   if(u.passWord.equals(pw)) return true;
   }
   
   return false;
@@ -62,7 +62,7 @@ public class userList {
   Iterator<Users> iter=users.iterator();
   while(iter.hasNext()){
    Users u=iter.next();
-   if(u.userName==un) return true;
+   if(u.userName.equals(un)) return true;
   }
   
   return false;
@@ -73,7 +73,7 @@ public class userList {
   Iterator<Users> iter=users.iterator();
   while(iter.hasNext()){
    Users u=iter.next();
-   if(u.userName==un) return u;
+   if(u.userName.equals(un)) return u;
   }
   
   return null;

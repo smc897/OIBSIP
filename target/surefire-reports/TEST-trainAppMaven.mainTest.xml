@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="1" name="trainAppMaven.mainTest" time="0.069" errors="0" skipped="0">
+<testsuite tests="1" failures="0" name="trainAppMaven.mainTest" time="0.062" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="15.0.2+7-27"/>
@@ -59,21 +59,5 @@
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="trainAppMaven.mainTest" name="trainAppMaven.mainTest.testAll" time="0.069">
-    <failure message="Index 4 out of bounds for length 4" type="java.lang.ArrayIndexOutOfBoundsException">java.lang.ArrayIndexOutOfBoundsException: Index 4 out of bounds for length 4
-	at trainAppMaven.mainTest.testAll(mainTest.java:63)
-</failure>
-    <system-out>in register, ID=e99a18c428cb38d5f260853678922e03
-User ScottMC89 has been registered.
-printing users: 
-user element: un=ScottMC89,password: abc123, id=e99a18c428cb38d5f260853678922e03
-
-user ScottMC89 has been found. logging in...
-id of user is: e99a18c428cb38d5f260853678922e03
-trip with ID: 0 added.
-printing trains: 
-trainInfo element: e99a18c428cb38d5f260853678922e03,false,5,express,12/23/2023,0
-
-</system-out>
-  </testcase>
+  <testcase classname="trainAppMaven.mainTest" name="trainAppMaven.mainTest.testAll" time="0.062"/>
 </testsuite>

@@ -7,6 +7,7 @@ package trainappmaven;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Iterator;
 
@@ -21,9 +22,6 @@ public class trainAppMaven {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
     
     //register
     public boolean register(String userName,String password){
@@ -34,10 +32,10 @@ public class trainAppMaven {
      }
      else{
          try{
-             long rawInt=(int)(Math.random()*RANDMAX+Calendar.MILLISECOND);
+             long rawInt=(long)(Math.random()*RANDMAX+Calendar.MILLISECOND);
       String raw=""+rawInt; //random
       MessageDigest md = MessageDigest.getInstance("MD5");
-       md.update(password.getBytes());  
+       md.update(raw.getBytes());  
         byte[] digest = md.digest();
        BigInteger bi= new BigInteger(1,digest);
         String ID = bi.toString(16);
@@ -88,7 +86,6 @@ public class trainAppMaven {
     }
     
     //print all users
-    //print all elements of til
     public void printAllUSers(){
      Iterator<Users> it=ul.users.iterator();
      System.out.println("printing users: ");
@@ -96,5 +93,45 @@ public class trainAppMaven {
       Users u=it.next();
       System.out.println(u.toString());
      }
+    }
+    
+    //get trains for a given user id
+    public ArrayList<trainInfo> getTrainsForUserId(String uid){
+     Iterator<trainInfo> iter = til.trains.iterator();
+     ArrayList<trainInfo> list = new ArrayList<trainInfo>();
+     while(iter.hasNext()){
+      trainInfo t=iter.next();
+      if(t.userId==uid) list.add(t);
+     }
+     
+     return list;
+    }
+    
+    //retrieve password for a given username
+    public String getPassWord(String un){
+     Iterator<Users> iter = ul.users.iterator();
+     while(iter.hasNext()){
+      Users u=iter.next();
+      if(u.userName.equals(un)) return u.passWord;
+     }
+     
+     return null;
+    }
+    
+    //get trip id for a given index and user id
+    public String getTripId(String ui, int index){
+     Iterator<trainInfo> iter = til.trains.iterator();
+     int count=0;
+     while(iter.hasNext()){
+      trainInfo u=iter.next();
+      if(u.userId.equals(ui)) {
+          if(count==index){
+           return u.id;
+          }
+          count++;
+      }
+     }
+     
+     return null;
     }
 }
