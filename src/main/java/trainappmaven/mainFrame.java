@@ -295,7 +295,7 @@ public class mainFrame extends javax.swing.JFrame {
         Iterator<trainInfo> iter = trainInfos.iterator();
         while(iter.hasNext()){
          trainInfo t=iter.next();
-         String trainInfoString=t.trainNum+","+t.trainName+","+t.date;
+         String trainInfoString=t.trainNum+","+t.trainName+","+t.id+","+t.date;
          listData.add(trainInfoString);
          jList1.setListData(listData);
         }
