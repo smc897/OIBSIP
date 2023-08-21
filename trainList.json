@@ -1,0 +1,31 @@
+{
+"title": "Record of trips",
+    "description": "This document records the details of trips",
+    "type": "object",
+    "properties": {
+        "id": {
+            "description": "A unique identifier for an employee",
+            "type": "number"
+        },
+        "userId": {
+            "description": "id of the employee",
+            "type": "string"
+        },
+        "trainName": {
+            "description": "train name",
+            "type": "string"
+        },
+        "trainNum": {
+            "description": "train number",
+            "type": "string"
+        },
+        "cancelled": {
+            "description": "train cancelled",
+            "type": "boolean"
+        },
+        "date": {
+            "description": "trip date",
+            "type": "string"
+        }
+     }
+}

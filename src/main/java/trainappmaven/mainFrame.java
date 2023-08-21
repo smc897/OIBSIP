@@ -24,7 +24,10 @@ public class mainFrame extends javax.swing.JFrame {
      * Creates new form mainFrame
      */
     public mainFrame() {
+        tam.readFromDb(); //syncs the lists with database
         initComponents();
+        listData.clear();
+        jList1.setListData(listData); //clear out box
      //   hideAll();
     }
 
@@ -250,10 +253,10 @@ public class mainFrame extends javax.swing.JFrame {
         Iterator<trainInfo> iter = trainInfos.iterator();
         while(iter.hasNext()){
          trainInfo t=iter.next();
-         String trainInfoString=t.trainNum+","+t.trainName+","+t.date;
+         String trainInfoString=t.trainNum+","+t.trainName+","+t.id+","+t.date;
          listData.add(trainInfoString);
-         jList1.setListData(listData);
         }
+        jList1.setListData(listData);
         }
       //  else showAll();
         }catch(Exception e){
@@ -297,8 +300,8 @@ public class mainFrame extends javax.swing.JFrame {
          trainInfo t=iter.next();
          String trainInfoString=t.trainNum+","+t.trainName+","+t.id+","+t.date;
          listData.add(trainInfoString);
-         jList1.setListData(listData);
         }
+        jList1.setListData(listData);
         }catch(Exception e){
          e.printStackTrace();
          JOptionPane.showMessageDialog(rootPane, "problem in adding train. Make sure your name and number are valid. "); 
@@ -311,6 +314,8 @@ public class mainFrame extends javax.swing.JFrame {
         try{
          int index=jList1.getSelectedIndex();
          String tripId=tam.getTripId(uid,index);
+         trainInfo tInfo=tam.til.readTrip(tripId);
+         tam.deleteTripFromDb(tInfo);
          tam.til.deleteTrip(tripId);
          
          //fill the list box
@@ -319,7 +324,7 @@ public class mainFrame extends javax.swing.JFrame {
         Iterator<trainInfo> iter = trainInfos.iterator();
         while(iter.hasNext()){
          trainInfo t=iter.next();
-         String trainInfoString=t.trainNum+","+t.trainName+","+t.date;
+         String trainInfoString=t.trainNum+","+t.trainName+","+t.id+","+t.date;
          listData.add(trainInfoString);
          jList1.setListData(listData);
         }

@@ -1,0 +1,19 @@
+{
+"title": "Record of user",
+    "description": "This document records the details of a student",
+    "type": "object",
+    "properties": {
+        "id": {
+            "description": "A unique identifier for an employee",
+            "type": "string"
+        },
+        "userName": {
+            "description": "Full name of the employee",
+            "type": "string"
+        },
+        "passWord": {
+            "description": "password",
+            "type": "string"
+        }
+     }
+}

@@ -1,0 +1,18 @@
+//these are test vectors for testing the database.
+// users:
+
+scottMC89 alpha2 abc123
+abbyjc sesame abcd1234
+meceng birdseed 123456
+
+//trips:
+abc123 0 express 405 12/23/2023 1234
+abcd1234 0 express2 415 02/23/2021 12345
+123456 0 bluejay 485 12/26/2023 123456
+
+//trips to delete
+12345
+123456
+
+
+

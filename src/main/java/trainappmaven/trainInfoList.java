@@ -14,7 +14,7 @@ import java.util.Iterator;
  */
 public class trainInfoList {
     public ArrayList<trainInfo> trains=new ArrayList<trainInfo>();
-    public long tripId=0;
+    public long tripId=System.currentTimeMillis();
     
  public trainInfo readTrip(String id){
   Iterator<trainInfo> iter=trains.iterator();
@@ -28,8 +28,9 @@ public class trainInfoList {
  
  //create
  public void newTrip(trainInfo u){
+  tripId=System.currentTimeMillis();
+  if(u.id.equals(null)) u.id=""+tripId;
   trains.add(u);
-  tripId++;
  }
          
  //update User
